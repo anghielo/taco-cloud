@@ -1,5 +1,6 @@
 package com.paradigm_shifters.tacocloud.model;
 
+// lombok library automatically sets the getters and setters at runtime
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

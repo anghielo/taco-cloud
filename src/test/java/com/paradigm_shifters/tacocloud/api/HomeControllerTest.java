@@ -1,5 +1,6 @@
 package com.paradigm_shifters.tacocloud.api;
 
+import com.paradigm_shifters.tacocloud.web.api.HomeController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
