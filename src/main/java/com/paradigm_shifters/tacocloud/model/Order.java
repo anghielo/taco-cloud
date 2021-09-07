@@ -1,9 +1,14 @@
 package com.paradigm_shifters.tacocloud.model;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.CreditCardNumber;
+import org.hibernate.validator.constraints.NotBlank;
 import lombok.Data;
 
 @Data
 public class Order {
+
     private String name;
     private String street;
     private String city;
@@ -12,4 +17,5 @@ public class Order {
     private String ccNumber;
     private String ccExpiration;
     private String ccCVV;
+
 }

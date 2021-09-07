@@ -20,7 +20,7 @@ import com.paradigm_shifters.tacocloud.model.Ingredient.Type;
 
 @Slf4j                      // Allows end user to plug in the desired logger in framework at deployment time
 @Controller                 // When applied at class level, it specifies that the Controller class will handle REST requests
-@RequestMapping("/design")  // Page mapping at class level
+@RequestMapping("/design")  // Class level page mapping
 public class DesignTacoController {
     @GetMapping
     public String showDesignForm(Model model) {
@@ -52,5 +52,14 @@ public class DesignTacoController {
                 .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public String processDesign(Taco design) {
+        // Save the taco design...
+        // We'll do this in chapter 3
+        log.info("Processing design: " + design);
+
+        return "redirect:/orders/current";
     }
 }
