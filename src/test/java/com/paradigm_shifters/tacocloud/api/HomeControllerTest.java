@@ -1,6 +1,5 @@
 package com.paradigm_shifters.tacocloud.api;
 
-import com.paradigm_shifters.tacocloud.web.HomeController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(HomeController.class)
+@WebMvcTest()
 class HomeControllerTest {
 
     @Autowired

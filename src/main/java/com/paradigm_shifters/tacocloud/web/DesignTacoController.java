@@ -54,8 +54,17 @@ public class DesignTacoController {
                 .collect(Collectors.toList());
     }
 
+    //The @Valid annotation tells Spring MVC to perform validation on the
+    // submitted Taco object after it’s bound to the submitted form data
+    // and before the processDesign() method is called. If there are any
+    // validation errors, the details of those errors will be captured in
+    // an Errors object that’s passed into processDesign().
     @PostMapping
-    public String processDesign(Taco design) {
+    public String processDesign(@Valid Taco design, Errors errors) {
+        if (errors.hasErrors()) {
+            return "design";
+        }
+
         // Save the taco design...
         // We'll do this in chapter 3
         log.info("Processing design: " + design);

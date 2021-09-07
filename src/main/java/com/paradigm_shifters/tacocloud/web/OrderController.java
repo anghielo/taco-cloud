@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.paradigm_shifters.tacocloud.model.Order;
 
 @Slf4j
-@Controller
+@Controller                 // When applied at class level, it specifies that the Controller class will handle REST requests
 @RequestMapping("/orders")                  // Class level page mapping
 public class OrderController {
 
@@ -22,9 +22,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(Order order) {
-        log.info("Order submitted: " + order);
+    public String processOrder(@Valid Order order, Errors errors) {
+        if (errors.hasErrors()) {
+            return "orderForm";
+        }
 
+        log.info("Order submitted: " + order);
         return "redirect:/";
     }
 }
