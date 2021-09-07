@@ -4,7 +4,6 @@ import lombok.Data;         // lombok library automatically sets the getters and
 import lombok.RequiredArgsConstructor;
 
 @Data                       // Automatically generate essential Java methods at runtime
-@RequiredArgsConstructor
 public class Ingredient {
 
     private final String id;
