@@ -1,17 +1,17 @@
 package com.paradigm_shifters.tacocloud.model;
 
-// lombok library automatically sets the getters and setters at runtime
-import lombok.Data;
+import lombok.Data;         // lombok library automatically sets the getters and setters at runtime
 import lombok.RequiredArgsConstructor;
 
-@Data
+@Data                       // Automatically generate essential Java methods at runtime
 @RequiredArgsConstructor
 public class Ingredient {
+
     private final String id;
     private final String name;
     private final Type type;
 
-    public enum Type {
+    public static enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
     }
 }

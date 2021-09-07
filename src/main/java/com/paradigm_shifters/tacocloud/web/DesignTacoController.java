@@ -1,28 +1,27 @@
 package com.paradigm_shifters.tacocloud.web;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.validation.Valid;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import lombok.extern.slf4j.Slf4j;
 import com.paradigm_shifters.tacocloud.model.Taco;
 import com.paradigm_shifters.tacocloud.model.Ingredient;
 import com.paradigm_shifters.tacocloud.model.Ingredient.Type;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
-
-import javax.validation.Valid;
-
-@Slf4j          // Allows end user to plug in the desired logging framework at deployment time
-@Controller     // When applied at class level, it specifies that the Controller class will handle REST requests
-@RequestMapping("/design")
+@Slf4j                      // Allows end user to plug in the desired logger in framework at deployment time
+@Controller                 // When applied at class level, it specifies that the Controller class will handle REST requests
+@RequestMapping("/design")  // Page mapping at class level
 public class DesignTacoController {
-
     @GetMapping
     public String showDesignForm(Model model) {
         List<Ingredient> ingredients = Arrays.asList(
@@ -38,19 +37,19 @@ public class DesignTacoController {
                 new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
         );
 
-        Type[] types = Type.values();
+        Type[] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(ingredients, type));
         }
 
         model.addAttribute("design", new Taco());
-
         return "design";
     }
 
     private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream()
+        return ingredients
+                .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
     }
