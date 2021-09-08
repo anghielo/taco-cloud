@@ -11,7 +11,7 @@ import lombok.Data;                         // lombok library automatically sets
   toString method, hashcode, equals implementation, generates setters
   for all non-final fields, constructor.
   Combines @Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode
-* */
+*/
 @Data
 public class Taco {
 
