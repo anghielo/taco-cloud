@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import com.paradigm_shifters.tacocloud.model.Order;
 
 @Slf4j
-@Controller                 // When applied at class level, it specifies that the Controller class will handle REST requests
-@RequestMapping("/orders")                  // Class level page mapping
+@Controller                             // When applied at class level, it specifies that the Controller class will handle REST requests
+@RequestMapping("/orders")              // Class level page mapping
 public class OrderController {
 
     @GetMapping("/current")                 // Method level page mapping
