@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.slf4j.Slf4j;
 import com.paradigm_shifters.tacocloud.model.Order;
 
-@Slf4j
+@Slf4j                                  // The Simple Logging Facade for Java (SLF4J). Causes lombok to generate a logger field
 @Controller                             // When applied at class level, it specifies that the Controller class will handle REST requests
 @RequestMapping("/orders")              // Class level page mapping
 public class OrderController {
